@@ -9,9 +9,9 @@ const asyncPromise = async function () {
       let rowReference = document.querySelector("#myLibraryContainer");
       myJson.forEach((card) => {
         rowReference.innerHTML += `
-        <div class="card mt-5 mx-3" style="width: 18rem">
+        <div class="card mt-5 mx-3 p-0" style="width: 18rem">
           <!-- <img src=${card.img} class="card-img-top" alt=${card.title} /> -->
-          <div style="width: 262px; height: 200px; background-image: url(${card.img}); margin-top: 12px; background-size: cover"></div>
+          <div style="width: 100%; height: 450px; background-image: url(${card.img}); background-size: cover; background-position: center"></div>
           <div class="card-body">
             <h5 class="card-title">${card.title}</h5>
           </div>
@@ -21,7 +21,7 @@ const asyncPromise = async function () {
             <li class="list-group-item">${card.price} €</li>
           </ul>
           <div class="card-body d-flex justify-content-center">
-            <button type="button" class="btn btn-outline-secondary">Hide</button>
+            <button type="button" class="btn btn-outline-secondary hideButton" onclick="hideCard(event)">Hide</button>
           </div>
         </div>
         `;
@@ -34,4 +34,11 @@ const asyncPromise = async function () {
   }
 };
 
-asyncPromise();
+const hideCard = function (eve) {
+  // create the reference for the entrire card clicked
+  const myCard = eve.srcElement.offsetParent;
+  // set Display none on the card when clicked
+  myCard.style.display = "none";
+};
+
+window.onload = asyncPromise();
