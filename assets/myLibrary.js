@@ -11,7 +11,7 @@ const asyncPromise = async function () {
         rowReference.innerHTML += `
         <div class="card mt-5 mx-3 p-0" style="width: 18rem">
           <!-- <img src=${card.img} class="card-img-top" alt=${card.title} /> -->
-          <div style="width: 100%; height: 450px; background-image: url(${card.img}); background-size: cover; background-position: center"></div>
+          <div id="card-image" style="background-image: url(${card.img})"></div>
           <div class="card-body">
             <h5 class="card-title">${card.title}</h5>
           </div>
